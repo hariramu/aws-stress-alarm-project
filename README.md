@@ -1,15 +1,26 @@
-# AWS CloudWatch Alarm Trigger via Stress Test on EC2
+# AWS CloudWatch Alarm Triggered via EC2 CPU Load
 
-This mini project demonstrates how to:
+## Overview
+This project demonstrates how to:
+- Launch an EC2 instance using Launch Template
+- Set up an Application Load Balancer and Target Group
+- Configure Auto Scaling Group (ASG)
+- Create a CloudWatch Alarm to monitor CPU usage
+- Trigger notifications using Amazon SNS
 
-- Launch EC2 using Launch Template
-- Create Application Load Balancer + Target Group + Auto Scaling Group
-- Set up CloudWatch alarms for CPU threshold
-- Trigger SNS email alerts when CPU > 20%
-- Use `stress` command inside EC2 to simulate CPU load
+## Structure
+- **stress-command.txt** – The command used to simulate high CPU load
+- **screenshots/** – Visuals showing CloudWatch alarm, email alert, EC2 usage
 
-## Stress Command Used:
-```bash
-sudo amazon-linux-extras install epel -y
-sudo yum install stress -y
-stress --cpu 1 --timeout 180
+## Architecture
+
+Below is the visual representation of the AWS infrastructure used:
+![Architecture Diagram](https://github.com/user-attachments/assets/9e22837e-b8c8-4a2e-bad8-07b5e57553ca)
+
+
+## Outcome
+The CloudWatch alarm successfully triggered an SNS email notification when CPU exceeded the threshold, as shown in the screenshots.
+
+---
+
+📩 Check `stress-command.txt` for the exact testing command used.
